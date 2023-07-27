@@ -17,6 +17,7 @@ import thunk from "redux-thunk";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 import MainScreen from "./components/Main";
 import AddScreen from "./components/main/Add";
+import SaveScreen from "./components/main/Save";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC0vozCySOnEMdxMa5NMpA5spw9Of1KXig",
@@ -106,7 +107,12 @@ export class App extends Component {
               component={MainScreen}
               options={{ headerShown: false }}
             />
-            <Stack.Screen name="Add" component={AddScreen} />
+            <Stack.Screen
+              name="Add"
+              component={AddScreen}
+              navigation={this.props.navigation}
+            />
+            <Stack.Screen name="Save" component={SaveScreen} />
           </Stack.Navigator>
           {/* <MainScreen /> */}
         </NavigationContainer>
